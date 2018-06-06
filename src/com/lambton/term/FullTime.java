@@ -3,7 +3,7 @@ package com.lambton.term;
 public class FullTime {
 	private Integer salary;
 	private Integer bonus;
-	
+	private Integer joiningYear;
 	
 	public Integer getSalary() {
 		return salary;
