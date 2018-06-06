@@ -38,5 +38,9 @@ public abstract class Employee implements IPrintable{
 	
 	
 	
+	@Override
+	public void printMyData() {
+		System.out.println("Name: "+getName()+"\nYear of Birth: "+calcBirthYear());
+	}
 	
 }
