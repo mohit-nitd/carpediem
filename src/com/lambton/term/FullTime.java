@@ -4,6 +4,7 @@ public class FullTime {
 	private Integer salary;
 	private Integer bonus;
 	
+	
 	public Integer getSalary() {
 		return salary;
 	}
