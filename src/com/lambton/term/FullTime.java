@@ -5,6 +5,18 @@ public class FullTime {
 	private Integer bonus;
 	private Integer joiningYear;
 	
+	
+	
+	public Integer getJoiningYear() 
+	{
+		return joiningYear;
+	}
+	
+	public void setJoiningYear(Integer joiningYear) {
+		this.joiningYear = joiningYear;
+	}
+	
+	
 	public Integer getSalary() {
 		return salary;
 	}
