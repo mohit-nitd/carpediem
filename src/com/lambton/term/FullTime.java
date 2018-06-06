@@ -13,7 +13,7 @@ public class FullTime {
 	}
 	
 	public void setJoiningYear(Integer joiningYear) {
-		this.joiningYear = joiningYear;
+		this.joiningYear= joiningYear;
 	}
 	
 	
