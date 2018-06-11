@@ -3,6 +3,15 @@ package com.lambton.term;
 public abstract class Vehicle implements IPrintable{
 	private String make;
 	private String plate;
+	private String ownerName;
+	
+	
+	public String getOwnerName() {
+		return ownerName;
+	}
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
+	}
 	
 	public String getMake() {
 		return make;
@@ -19,6 +28,6 @@ public abstract class Vehicle implements IPrintable{
 	
 	@Override
 	public void printMyData() {
-		System.out.println("-"+getMake()+"\n-"+getPlate());
+		System.out.println("Owner name  "+getOwnerName()+"\n  Make =  "+getMake()+"\n  Plate=  "+getPlate());
 	}
 }
