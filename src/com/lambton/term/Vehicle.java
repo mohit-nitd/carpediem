@@ -4,9 +4,17 @@ public abstract class Vehicle implements IPrintable{
 	private String make;
 	private String plate;
 	private String ownerName;
+	private Integer monthlyAttendance;
 	
-	
-	public String getOwnerName() {
+	public Integer getMonthlyAttendance() {
+		return monthlyAttendance;
+	}
+
+	public void setMonthlyAttendance(Integer monthlyAttendance) {
+		this.monthlyAttendance = monthlyAttendance;
+	}
+
+   public String getOwnerName() {
 		return ownerName;
 	}
 	public void setOwnerName(String ownerName) {
@@ -25,6 +33,8 @@ public abstract class Vehicle implements IPrintable{
 	public void setPlate(String plate) {
 		this.plate = plate;
 	}
+	
+	
 	
 	@Override
 	public void printMyData() {
