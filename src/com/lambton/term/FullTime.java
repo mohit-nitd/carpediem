@@ -1,6 +1,6 @@
 package com.lambton.term;
 
-public class FullTime {
+public class FullTime extends Employee implements IPrintable {
 	private Integer salary;
 	private Integer bonus;
 	private Integer joiningYear;
