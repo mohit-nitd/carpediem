@@ -1,6 +1,6 @@
 package com.lambton.term;
 
-public class FullTime extends Employee implements IPrintable {
+public class FullTime extends Employee{
 	private Integer salary;
 	private Integer bonus;
 	private Integer joiningYear;
@@ -33,6 +33,16 @@ public class FullTime extends Employee implements IPrintable {
 	
 	public Integer calcEarnings() {
 		return this.bonus+this.salary;
+	}
+		
+
+		public void printMyData() {
+			System.out.println("Employee is Fulltime ");
+			System.out.println("-"+getSalary());
+			System.out.println("-"+getBonus());
+			System.out.println("-"+getJoiningYear());
+			
+		
 	}
 	
 }
