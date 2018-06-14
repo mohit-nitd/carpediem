@@ -3,8 +3,26 @@ package com.lambton.term;
 public abstract class Vehicle implements IPrintable{
 	private String make;
 	private String plate;
-	private String ownerName;
 	private Integer monthlyAttendance;
+	private int milage;
+	 private Integer distanceTravelInOneDay;
+	 
+	 public Integer getDistanceTravelInOneDay() {
+			return distanceTravelInOneDay;
+		}
+		public void setDistanceTravelInOneDay(Integer distanceTravelInOneDay) {
+			this.distanceTravelInOneDay = distanceTravelInOneDay;
+		}
+	
+	
+	
+	public int getmilage() {
+		return milage;
+	}
+
+	public void setMilage(int avgOfCar) {
+		this.milage = avgOfCar;
+	}
 	
 	public Integer getMonthlyAttendance() {
 		return monthlyAttendance;
@@ -14,12 +32,7 @@ public abstract class Vehicle implements IPrintable{
 		this.monthlyAttendance = monthlyAttendance;
 	}
 
-   public String getOwnerName() {
-		return ownerName;
-	}
-	public void setOwnerName(String ownerName) {
-		this.ownerName = ownerName;
-	}
+   
 	
 	public String getMake() {
 		return make;
@@ -38,6 +51,6 @@ public abstract class Vehicle implements IPrintable{
 	
 	@Override
 	public void printMyData() {
-		System.out.println("Owner name  "+getOwnerName()+"\n  Make =  "+getMake()+"\n  Plate=  "+getPlate());
+		System.out.println("\nMake =  "+getMake()+"\nPlate = "+getPlate());
 	}
 }

@@ -3,6 +3,7 @@ package com.lambton.term;
 public class CommisionBasedPartTime extends PartTime implements IPrintable{
 	private int commissionPerc;
 	
+	
 
 	public float getCommissionPerc() {
 		return commissionPerc;
