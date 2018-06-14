@@ -13,4 +13,12 @@ public class FixedBasedPartTime extends PartTime{
 	public float calcEarnings() {
 		return (getRate()*getHoursWorked())+getFixedAmmount();
 	}
+	@Override
+	public void printMyData() {
+		String employeeType = "Employee is  FixedBasedPartTime"; 
+		super.printMyData();
+		System.out.println(employeeType);
+		System.out.println("-Earnings: " +(getRate()*getHoursWorked())+getFixedAmmount());
+	
+	}
 }
