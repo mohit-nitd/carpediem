@@ -32,15 +32,17 @@ public class FullTime extends Employee{
 	}
 	
 	public Integer calcEarnings() {
-		return this.bonus+this.salary;
+		return( getBonus()+getSalary());
 	}
 		
-
-		public void printMyData() {
+      @Override
+      public void printMyData() {
 			System.out.println("Employee is Fulltime ");
+			super.printMyData();
 			System.out.println("-"+getSalary());
 			System.out.println("-"+getBonus());
 			System.out.println("-"+getJoiningYear());
+			System.out.println("-"+calcEarnings());
 			
 		
 	}
