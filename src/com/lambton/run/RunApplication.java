@@ -1,11 +1,14 @@
 package com.lambton.run;
 
 import com.lambton.term.CommisionBasedPartTime;
+import com.lambton.term.Employee;
 import com.lambton.term.FullTime;
 import com.lambton.term.Intern;
 import com.lambton.term.FixedBasedPartTime;
-import com.lambton.term.Motorcycle;
 
+import com.lambton.term.Motorcycle;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.lambton.term.Car;
@@ -13,121 +16,246 @@ import com.lambton.term.Car;
 public class RunApplication {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		float totalSalary = 0;
+		List<Employee> listOfEmployees = new ArrayList<Employee>();
+		int option;
+		do{
+			System.out.println();
+			System.out.println("Press 1 to add and CommsionBasedEmployee");
+			System.out.println("Press 2 to add and FixedBasedPartTimeEmployee");
+			System.out.println("Press 3 to add and FullTime Employee");
+			System.out.println("Press 4 to add and Intern");
+			System.out.println("Press 5 to calculate all the payout");
+			System.out.println("Press 6 to Print particular Employee's data");
+			System.out.println("Press 7 to Exit out of the program");
+			option = sc.nextInt();;
+			switch (option) {
+			case 1:
+				CommisionBasedPartTime commissionBasedEmployee1 = new CommisionBasedPartTime();
+				System.out.println("Please enter the employee's name");
+				commissionBasedEmployee1.setName(sc.next());
+				System.out.println("Please enter the employee's age");
+				commissionBasedEmployee1.setAge(sc.nextInt());
+				System.out.println("Please enter the employee's Id Card Number");
+				commissionBasedEmployee1.setidCardNo(sc.nextInt());
+				System.out.println("Please enter the employee's phone number");
+				commissionBasedEmployee1.setMobNum(sc.nextLong());
+				System.out.println("Please enter the number of hours worked by Employee");
+				commissionBasedEmployee1.setHoursWorked(sc.nextInt());
+				System.out.println("Please enter the rate of commision for the Employee");
+				commissionBasedEmployee1.setRate(sc.nextInt());
+				System.out.println("Does Employee has any vehicle? Press Y for Yes N for NO");
+				if(sc.next().equalsIgnoreCase("y")) {
+					System.out.println("What type of vehicle does the employee has Car or Motorcycle?");
+					if(sc.next().equalsIgnoreCase("car")) {
+						Car car1 = new Car();
+						car1.setCostOfFuel(100);
+						car1.setPlate("MANINDER");
+						car1.setDistanceTravelInOneDay(90);
+						car1.setNumOfSeats(2);
+						car1.setMake("MERC");
+						car1.setMilage(5);
+						car1.setMonthlyAttendance(10);
+						car1.monthlyFuelExpenses();
+						car1.printMyData();
+					}else if(sc.next().equalsIgnoreCase("motorcycle")) {
+						Motorcycle motorcycle1 = new Motorcycle();
+						System.out.println("Please Enter the motocycle weight");
+						motorcycle1.setKerbWeight(sc.nextInt());
+						System.out.println("Please Enter the motocycle Make");
+						motorcycle1.setMake(sc.next());
+						System.out.println("Please Enter the motocycle Plate");
+						motorcycle1.setPlate(sc.next());
+						motorcycle1.printMyData();
+					}
+					totalSalary += commissionBasedEmployee1.calcEarnings();
+					commissionBasedEmployee1.printMyData();
+					listOfEmployees.add(commissionBasedEmployee1);
+					break;
+				}
+				totalSalary += commissionBasedEmployee1.calcEarnings();
+				commissionBasedEmployee1.printMyData();
+				listOfEmployees.add(commissionBasedEmployee1);
+				break;
+			case 2:
+				FixedBasedPartTime fixedBasePartTime1  = new FixedBasedPartTime();
+				
+				System.out.println("Please enter the employee's name");
+				fixedBasePartTime1.setName(sc.next());
+				System.out.println("Please enter the employee's age");
+				fixedBasePartTime1.setAge(sc.nextInt());
+				System.out.println("Please enter the employee's Id Card Number");
+				fixedBasePartTime1.setidCardNo(sc.nextInt());
+				System.out.println("Please enter the employee's phone number");
+				fixedBasePartTime1.setMobNum(sc.nextLong());
+				System.out.println("Please enter the number of hours worked by Employee");
+				fixedBasePartTime1.setHoursWorked(sc.nextInt());
+				System.out.println("Please enter the rate of commision for the Employee");
+				fixedBasePartTime1.setRate(sc.nextInt());
 
-		// CommisionBasedPartTime EMPLOYEE
-		CommisionBasedPartTime commissionBasedEmployee1 = new CommisionBasedPartTime();
-		Motorcycle motorcycle1 = new Motorcycle();
+                           System.out.println("Please enter the fixed amount for the Employee");
+                           fixedBasePartTime1.setFixedAmmount(sc.nextInt());
 
-		// FixedBasedPartTime EMPLOYEE
-		Car car2 = new Car();
-		FixedBasedPartTime fixedBasePartTime1 = new FixedBasedPartTime();
 
-		// INTERN EMPLOYEE
-		Car car3 = new Car();
-		Intern internEmployee1 = new Intern();
 
-		// FULL TIME EMPLOYEE
-		Car car1 = new Car();
-		FullTime fullTimeEmployee1 = new FullTime();
-
-		System.out.println("Enter Employee ID Number");
-
-		int idCardNo = sc.nextInt();
-
-		switch (idCardNo) {
-
-		case 5000: {
+				System.out.println("Does Employee has any vehicle? Press Y for Yes N for NO");
+				if(sc.next().equalsIgnoreCase("y")) {
+					System.out.println("What type of vehicle does the employee has Car or Motorcycle?");
+					if(sc.next().equalsIgnoreCase("car")) {
+						Car car1 = new Car();
+						car1.setCostOfFuel(100);
+						car1.setPlate("MANINDER");
+						car1.setDistanceTravelInOneDay(90);
+						car1.setNumOfSeats(2);
+						car1.setMake("MERC");
+						car1.setMilage(5);
+						car1.setMonthlyAttendance(10);
+						car1.monthlyFuelExpenses();
+					}else if(sc.next().equalsIgnoreCase("motorcycle")) {
+						Motorcycle motorcycle1 = new Motorcycle();
+						System.out.println("Please Enter the motocycle weight");
+						motorcycle1.setKerbWeight(sc.nextInt());
+						System.out.println("Please Enter the motocycle Make");
+						motorcycle1.setMake(sc.next());
+						System.out.println("Please Enter the motocycle Plate");
+						motorcycle1.setPlate(sc.next());
+                     motorcycle1.printMyData();
+                       }
+                        totalSalary += fixedBasePartTime1.calcEarnings();
+                        fixedBasePartTime1.printMyData();
+					listOfEmployees.add(fixedBasePartTime1);
+					break;
+					
+				}
+				totalSalary += fixedBasePartTime1.calcEarnings();
+				fixedBasePartTime1.printMyData();
+				listOfEmployees.add(fixedBasePartTime1);
+				break;
+			case 3:
 			
-			motorcycle1.setKerbWeight(110);
-			motorcycle1.setMake("Royal Enfield");
-			motorcycle1.setPlate("JATT");
-			commissionBasedEmployee1.setAge(25);
-			commissionBasedEmployee1.setidCardNo(5000);
-			commissionBasedEmployee1.setMobNum(437971220);
-			commissionBasedEmployee1.setName("Mohit");
-			commissionBasedEmployee1.setHoursWorked(40);
-			commissionBasedEmployee1.setRate(20);
-			commissionBasedEmployee1.setCommissionPerc(20);
-			commissionBasedEmployee1.setVehicle(motorcycle1);
-			commissionBasedEmployee1.printMyData();
-			commissionBasedEmployee1.getVehicle().printMyData();
-		} break;
-		case 5001: {
-			
-			car2.setCostOfFuel(100);
-			car2.setPlate("MANINDER");
-			car2.setDistanceTravelInOneDay(90);
-			car2.setNumOfSeats(2);
-			car2.setMake("MERC");
-			car2.setMilage(5);
-			car2.setMonthlyAttendance(15);
-			car2.monthlyFuelExpenses();
-			car2.printMyData();
+				FullTime fullTime1 = new FullTime();
+				System.out.println("Please enter the employee's name");
+				fullTime1.setName(sc.next());
+				System.out.println("Please enter the employee's age");
+				fullTime1.setAge(sc.nextInt());
+				System.out.println("Please enter the employee's Id Card Number");
+				fullTime1.setidCardNo(sc.nextInt());
+				System.out.println("Please enter the employee's phone number");
+				fullTime1.setMobNum(sc.nextLong());
+				System.out.println("Please enter the  Employee Bonus");
+				fullTime1.setBonus(sc.nextInt());
 
-			System.out.println("enter age of employee");
-			int z = sc.nextInt();
-			fixedBasePartTime1.setAge(z);
-			fixedBasePartTime1.setVehicle(car2);
-			fixedBasePartTime1.setRate(50);
-			System.out.println("ENTER NAME OF EMPLOYEE");
-			String bat = sc.next();
-			fixedBasePartTime1.setName(bat);
-			fixedBasePartTime1.setMobNum(1234567);
-			fixedBasePartTime1.setidCardNo(5001);
-			fixedBasePartTime1.setHoursWorked(150);
-			fixedBasePartTime1.setFixedAmmount(4000.0f);
-			fixedBasePartTime1.calcBirthYear();
-			fixedBasePartTime1.calcEarnings();
-			fixedBasePartTime1.printMyData();
-		} break;
-		case 5002: {
-			
-			car3.setCostOfFuel(100);
-			car3.setPlate("NISHAN");
-			car3.setDistanceTravelInOneDay(90);
-			car3.setNumOfSeats(2);
-			car3.setMake("AUDI");
-			car3.setMilage(5);
-			car3.setMonthlyAttendance(30);
-			car3.monthlyFuelExpenses();
-			car3.printMyData();
+                    System.out.println("Please enter the  Employee salary");
+				fullTime1.setSalary(sc.nextInt());
 
-			internEmployee1.setVehicle(car3);
-			internEmployee1.setStipend(5000);
-			internEmployee1.setSchoolName("LAMBTON COLLEGE");
-			internEmployee1.setName("KARTIK");
-			internEmployee1.setMobNum(987654);
-			internEmployee1.setidCardNo(5002);
-			internEmployee1.setAge(25);
-			internEmployee1.printMyData();
-		} break;
-		case 5003: {
-			
-			car1.setCostOfFuel(100);
-			car1.setPlate("rohit");
-			car1.setDistanceTravelInOneDay(90);
-			car1.setNumOfSeats(2);
-			car1.setMake("BENTLEY");
-			car1.setMilage(10);
-			car1.setMonthlyAttendance(23);
-			car1.monthlyFuelExpenses();
-			car1.printMyData();
+                        System.out.println("Does Employee has any vehicle? Press Y for Yes N for NO");
+				if(sc.next().equalsIgnoreCase("y")) {
+					System.out.println("What type of vehicle does the employee has Car or Motorcycle?");
+						if(sc.next().equalsIgnoreCase("car")) {
+						Car car1 = new Car();
+						car1.setCostOfFuel(100);
+						car1.setPlate("MANINDER");
+						car1.setDistanceTravelInOneDay(90);
+						car1.setNumOfSeats(2);
+						car1.setMake("MERC");
+						car1.setMilage(5);
+						car1.setMonthlyAttendance(10);
+						car1.monthlyFuelExpenses();
+						car1.printMyData();
+					} 
+						else if(sc.next().equalsIgnoreCase("motorcycle")) 
+						{
+						Motorcycle motorcycle1 = new Motorcycle();
+						//System.out.println("Please Enter the motocycle w3eight");
+						motorcycle1.setKerbWeight(10);
+						System.out.println("Please Enter the motocycle Make");
+						motorcycle1.setMake(sc.next());
+						System.out.println("Please Enter the motocycle Plate");
+						motorcycle1.setPlate(sc.next());
+						motorcycle1.printMyData();
+						}
+				
+					totalSalary += fullTime1.calcEarnings();
+					fullTime1.printMyData();
+					listOfEmployees.add(fullTime1);
+					break;
+				}
+				totalSalary += fullTime1.calcEarnings();
+				fullTime1.printMyData();
+				listOfEmployees.add(fullTime1);
+				break;
+			case 4:	
 
-			fullTimeEmployee1.setVehicle(car1);
-			fullTimeEmployee1.setSalary(5000);
-			fullTimeEmployee1.setName("RISHI");
-			fullTimeEmployee1.setMobNum(654823);
-			fullTimeEmployee1.setidCardNo(5003);
-			fullTimeEmployee1.setBonus(1000);
-			fullTimeEmployee1.setAge(50);
-			
-			fullTimeEmployee1.calcEarnings();
-			fullTimeEmployee1.calcBirthYear();
-			fullTimeEmployee1.printMyData();
-		} break;
-
-		default: System.out.println("EMPLOYEE ID DOES NOT EXIST");
-
-		}
+				Intern intern1  = new Intern();
+				
+				System.out.println("Please enter the employee's name");
+				intern1.setName(sc.next());
+				System.out.println("Please enter the employee's age");
+				intern1.setAge(sc.nextInt());
+				System.out.println("Please enter the employee's Id Card Number");
+				intern1.setidCardNo(sc.nextInt());
+				System.out.println("Please enter the employee's phone number");
+				intern1.setMobNum(sc.nextLong());
+				System.out.println("Please enter the School name of intern");
+				intern1.setSchoolName(sc.next());
+				System.out.println("Please enter stipend of Intern");
+				intern1.setStipend(sc.nextInt());
+                 intern1.printMyData();
+				System.out.println("Does Employee has any vehicle? Press Y for Yes N for NO");
+				if(sc.next().equalsIgnoreCase("y")) {
+					System.out.println("What type of vehicle does the employee has Car or Motorcycle?");
+					if(sc.next().equalsIgnoreCase("car")) {
+						Car car1 = new Car();
+						car1.setCostOfFuel(100);
+						car1.setPlate("MANINDER");
+						car1.setDistanceTravelInOneDay(90);
+						car1.setNumOfSeats(2);
+						car1.setMake("MERC");
+						car1.setMilage(5);
+						car1.setMonthlyAttendance(10);
+						car1.monthlyFuelExpenses();
+					}else if(sc.next().equalsIgnoreCase("motorcycle")) {
+						Motorcycle motorcycle1 = new Motorcycle();
+						System.out.println("Please Enter the motocycle weight");
+						motorcycle1.setKerbWeight(sc.nextInt());
+						System.out.println("Please Enter the motocycle Make");
+						motorcycle1.setMake(sc.next());
+						System.out.println("Please Enter the motocycle Plate");
+						motorcycle1.setPlate(sc.next());
+                     motorcycle1.printMyData();
+                       }
+                        totalSalary += intern1.getStipend();
+                        intern1.printMyData();
+					listOfEmployees.add(intern1);
+					break;
+					
+				}
+				totalSalary += intern1.getStipend();
+				intern1.printMyData();
+				listOfEmployees.add(intern1);
+				break;
+				
+			case 5:
+				System.out.println("Total Payout to employees is : "+totalSalary);
+			case 6:
+				System.out.println("Please Enter the employee id");
+				int idCardNumber = sc.nextInt();
+				for (Employee employee : listOfEmployees) {
+					if(employee.getidCardNo()== idCardNumber) {
+						employee.printMyData();
+					}
+				}
+			case 7:
+				sc.close();
+				System.exit(0);
+				break;
+			default:
+				System.out.println("Please Enter the correct option");
+				break;
+			}
+		}while (option != 7);
 	}
-}
+	}
+		
+
+		
