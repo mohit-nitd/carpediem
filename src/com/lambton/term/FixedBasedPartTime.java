@@ -1,12 +1,12 @@
 package com.lambton.term;
 
 public class FixedBasedPartTime extends PartTime{
-	private Float fixedAmmount;
+	private int fixedAmmount;
 	
-	public Float getFixedAmmount() {
+	public int getFixedAmmount() {
 		return fixedAmmount;
 	}
-	public void setFixedAmmount(Float fixedAmmount) {
+	public void setFixedAmmount(int fixedAmmount) {
 		this.fixedAmmount = fixedAmmount;
 	}
 	
