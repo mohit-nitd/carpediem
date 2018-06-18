@@ -19,7 +19,7 @@ public class RunApplication {
 		float totalSalary = 0;
 		List<Employee> listOfEmployees = new ArrayList<Employee>();
 		int option;
-		do{
+		do {
 			System.out.println();
 			System.out.println("Press 1 to add and CommsionBasedEmployee");
 			System.out.println("Press 2 to add and FixedBasedPartTimeEmployee");
@@ -28,7 +28,7 @@ public class RunApplication {
 			System.out.println("Press 5 to calculate all the payout");
 			System.out.println("Press 6 to Print particular Employee's data");
 			System.out.println("Press 7 to Exit out of the program");
-			option = sc.nextInt();;
+			option = sc.nextInt();
 			switch (option) {
 			case 1:
 				CommisionBasedPartTime commissionBasedEmployee1 = new CommisionBasedPartTime();
@@ -45,9 +45,10 @@ public class RunApplication {
 				System.out.println("Please enter the rate of commision for the Employee");
 				commissionBasedEmployee1.setRate(sc.nextInt());
 				System.out.println("Does Employee has any vehicle? Press Y for Yes N for NO");
-				if(sc.next().equalsIgnoreCase("y")) {
+				if (sc.next().equalsIgnoreCase("y")) {
 					System.out.println("What type of vehicle does the employee has Car or Motorcycle?");
-					if(sc.next().equalsIgnoreCase("car")) {
+					String inputVehicle = sc.next();
+					if (inputVehicle.equalsIgnoreCase("car")) {
 						Car car1 = new Car();
 						car1.setCostOfFuel(100);
 						car1.setPlate("MANINDER");
@@ -57,8 +58,9 @@ public class RunApplication {
 						car1.setMilage(5);
 						car1.setMonthlyAttendance(10);
 						car1.monthlyFuelExpenses();
+						commissionBasedEmployee1.setVehicle(car1);
 						car1.printMyData();
-					}else if(sc.next().equalsIgnoreCase("motorcycle")) {
+					} else if (inputVehicle.equalsIgnoreCase("motorcycle")) {
 						Motorcycle motorcycle1 = new Motorcycle();
 						System.out.println("Please Enter the motocycle weight");
 						motorcycle1.setKerbWeight(sc.nextInt());
@@ -66,6 +68,7 @@ public class RunApplication {
 						motorcycle1.setMake(sc.next());
 						System.out.println("Please Enter the motocycle Plate");
 						motorcycle1.setPlate(sc.next());
+						commissionBasedEmployee1.setVehicle(motorcycle1);
 						motorcycle1.printMyData();
 					}
 					totalSalary += commissionBasedEmployee1.calcEarnings();
@@ -78,8 +81,8 @@ public class RunApplication {
 				listOfEmployees.add(commissionBasedEmployee1);
 				break;
 			case 2:
-				FixedBasedPartTime fixedBasePartTime1  = new FixedBasedPartTime();
-				
+				FixedBasedPartTime fixedBasePartTime1 = new FixedBasedPartTime();
+
 				System.out.println("Please enter the employee's name");
 				fixedBasePartTime1.setName(sc.next());
 				System.out.println("Please enter the employee's age");
@@ -93,15 +96,14 @@ public class RunApplication {
 				System.out.println("Please enter the rate of commision for the Employee");
 				fixedBasePartTime1.setRate(sc.nextInt());
 
-                           System.out.println("Please enter the fixed amount for the Employee");
-                           fixedBasePartTime1.setFixedAmmount(sc.nextInt());
-
-
+				System.out.println("Please enter the fixed amount for the Employee");
+				fixedBasePartTime1.setFixedAmmount(sc.nextInt());
 
 				System.out.println("Does Employee has any vehicle? Press Y for Yes N for NO");
-				if(sc.next().equalsIgnoreCase("y")) {
+				if (sc.next().equalsIgnoreCase("y")) {
 					System.out.println("What type of vehicle does the employee has Car or Motorcycle?");
-					if(sc.next().equalsIgnoreCase("car")) {
+					String inputVehicle = sc.next();
+					if (inputVehicle.equalsIgnoreCase("car")) {
 						Car car1 = new Car();
 						car1.setCostOfFuel(100);
 						car1.setPlate("MANINDER");
@@ -111,7 +113,9 @@ public class RunApplication {
 						car1.setMilage(5);
 						car1.setMonthlyAttendance(10);
 						car1.monthlyFuelExpenses();
-					}else if(sc.next().equalsIgnoreCase("motorcycle")) {
+						fixedBasePartTime1.setVehicle(car1);
+						car1.printMyData();
+					} else if (inputVehicle.equalsIgnoreCase("motorcycle")) {
 						Motorcycle motorcycle1 = new Motorcycle();
 						System.out.println("Please Enter the motocycle weight");
 						motorcycle1.setKerbWeight(sc.nextInt());
@@ -119,20 +123,22 @@ public class RunApplication {
 						motorcycle1.setMake(sc.next());
 						System.out.println("Please Enter the motocycle Plate");
 						motorcycle1.setPlate(sc.next());
-                     motorcycle1.printMyData();
-                       }
-                        totalSalary += fixedBasePartTime1.calcEarnings();
-                        fixedBasePartTime1.printMyData();
+						fixedBasePartTime1.setVehicle(motorcycle1);
+						motorcycle1.printMyData();
+					}
+
+					totalSalary += fixedBasePartTime1.calcEarnings();
+					fixedBasePartTime1.printMyData();
 					listOfEmployees.add(fixedBasePartTime1);
 					break;
-					
+
 				}
 				totalSalary += fixedBasePartTime1.calcEarnings();
 				fixedBasePartTime1.printMyData();
 				listOfEmployees.add(fixedBasePartTime1);
 				break;
 			case 3:
-			
+
 				FullTime fullTime1 = new FullTime();
 				System.out.println("Please enter the employee's name");
 				fullTime1.setName(sc.next());
@@ -145,13 +151,14 @@ public class RunApplication {
 				System.out.println("Please enter the  Employee Bonus");
 				fullTime1.setBonus(sc.nextInt());
 
-                    System.out.println("Please enter the  Employee salary");
+				System.out.println("Please enter the  Employee salary");
 				fullTime1.setSalary(sc.nextInt());
 
-                        System.out.println("Does Employee has any vehicle? Press Y for Yes N for NO");
-				if(sc.next().equalsIgnoreCase("y")) {
+				System.out.println("Does Employee has any vehicle? Press Y for Yes N for NO");
+				if (sc.next().equalsIgnoreCase("y")) {
 					System.out.println("What type of vehicle does the employee has Car or Motorcycle?");
-						if(sc.next().equalsIgnoreCase("car")) {
+					String inputVehicle = sc.next();
+					if (inputVehicle.equalsIgnoreCase("car")) {
 						Car car1 = new Car();
 						car1.setCostOfFuel(100);
 						car1.setPlate("MANINDER");
@@ -161,20 +168,20 @@ public class RunApplication {
 						car1.setMilage(5);
 						car1.setMonthlyAttendance(10);
 						car1.monthlyFuelExpenses();
+						fullTime1.setVehicle(car1);
 						car1.printMyData();
-					} 
-						else if(sc.next().equalsIgnoreCase("motorcycle")) 
-						{
+					} else if (inputVehicle.equalsIgnoreCase("motorcycle")) {
 						Motorcycle motorcycle1 = new Motorcycle();
-						//System.out.println("Please Enter the motocycle w3eight");
+						System.out.println("Please Enter the motocycle w3eight");
 						motorcycle1.setKerbWeight(10);
 						System.out.println("Please Enter the motocycle Make");
 						motorcycle1.setMake(sc.next());
 						System.out.println("Please Enter the motocycle Plate");
 						motorcycle1.setPlate(sc.next());
+						fullTime1.setVehicle(motorcycle1);
 						motorcycle1.printMyData();
-						}
-				
+					}
+
 					totalSalary += fullTime1.calcEarnings();
 					fullTime1.printMyData();
 					listOfEmployees.add(fullTime1);
@@ -184,10 +191,10 @@ public class RunApplication {
 				fullTime1.printMyData();
 				listOfEmployees.add(fullTime1);
 				break;
-			case 4:	
+			case 4:
 
-				Intern intern1  = new Intern();
-				
+				Intern intern1 = new Intern();
+
 				System.out.println("Please enter the employee's name");
 				intern1.setName(sc.next());
 				System.out.println("Please enter the employee's age");
@@ -200,11 +207,12 @@ public class RunApplication {
 				intern1.setSchoolName(sc.next());
 				System.out.println("Please enter stipend of Intern");
 				intern1.setStipend(sc.nextInt());
-                 intern1.printMyData();
+				intern1.printMyData();
 				System.out.println("Does Employee has any vehicle? Press Y for Yes N for NO");
-				if(sc.next().equalsIgnoreCase("y")) {
+				if (sc.next().equalsIgnoreCase("y")) {
 					System.out.println("What type of vehicle does the employee has Car or Motorcycle?");
-					if(sc.next().equalsIgnoreCase("car")) {
+					String inputVehicle = sc.next();
+					if (inputVehicle.equalsIgnoreCase("car")) {
 						Car car1 = new Car();
 						car1.setCostOfFuel(100);
 						car1.setPlate("MANINDER");
@@ -214,7 +222,9 @@ public class RunApplication {
 						car1.setMilage(5);
 						car1.setMonthlyAttendance(10);
 						car1.monthlyFuelExpenses();
-					}else if(sc.next().equalsIgnoreCase("motorcycle")) {
+						intern1.setVehicle(car1);
+						car1.printMyData();
+					} else if (inputVehicle.equalsIgnoreCase("motorcycle")) {
 						Motorcycle motorcycle1 = new Motorcycle();
 						System.out.println("Please Enter the motocycle weight");
 						motorcycle1.setKerbWeight(sc.nextInt());
@@ -222,26 +232,27 @@ public class RunApplication {
 						motorcycle1.setMake(sc.next());
 						System.out.println("Please Enter the motocycle Plate");
 						motorcycle1.setPlate(sc.next());
-                     motorcycle1.printMyData();
-                       }
-                        totalSalary += intern1.getStipend();
-                        intern1.printMyData();
+						intern1.setVehicle(motorcycle1);
+						motorcycle1.printMyData();
+					}
+					totalSalary += intern1.getStipend();
+					intern1.printMyData();
 					listOfEmployees.add(intern1);
 					break;
-					
+
 				}
 				totalSalary += intern1.getStipend();
 				intern1.printMyData();
 				listOfEmployees.add(intern1);
 				break;
-				
+
 			case 5:
-				System.out.println("Total Payout to employees is : "+totalSalary);
+				System.out.println("Total Payout to employees is : " + totalSalary);
 			case 6:
 				System.out.println("Please Enter the employee id");
 				int idCardNumber = sc.nextInt();
 				for (Employee employee : listOfEmployees) {
-					if(employee.getidCardNo()== idCardNumber) {
+					if (employee.getidCardNo() == idCardNumber) {
 						employee.printMyData();
 					}
 				}
@@ -253,9 +264,6 @@ public class RunApplication {
 				System.out.println("Please Enter the correct option");
 				break;
 			}
-		}while (option != 7);
+		} while (option != 7);
 	}
-	}
-		
-
-		
+}
